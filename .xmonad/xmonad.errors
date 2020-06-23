@@ -1,0 +1,7 @@
+
+xmonad.hs:280:1: warning: [-Wtabs]
+    Tab character found here.
+    Please use spaces instead.
+    |
+280 |         , logHook = dynamicLogWithPP xmobarPP
+    | ^^^^^^^^
