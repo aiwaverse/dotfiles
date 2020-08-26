@@ -1,0 +1,24 @@
+{
+"coc.preferences.formatOnSaveFiletypes": ["scala"],
+"languageserver": {
+  "haskell": {
+    "command": "hie-wrapper",
+    "args": ["--lsp"],
+    "rootPatterns": [
+      "*.cabal",
+      "stack.yaml",
+      "cabal.project",
+      "package.yaml",
+      "../*.cabal"
+    ],
+    "filetypes": [
+      "hs",
+      "lhs",
+      "haskell"
+    ],
+    "initializationOptions": {
+      "languageServerHaskell": {
+      }
+    }
+  }
+}}
