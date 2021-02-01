@@ -15,6 +15,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import XMonad.Layout.Spacing
+import XMonad.Hooks.EwmhDesktops
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -25,7 +26,7 @@ myTerminal      = "tilix"
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 -- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
@@ -137,7 +138,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Quit xmonad
     , ((modm .|. shiftMask, xK_c     ), io (exitWith ExitSuccess))
-
+   
+    -- Toogle touchpad
+    , ((modm .|. shiftMask, xK_t     ), spawn "/home/maya/Software/xinput-toggle -i 13")
     -- Spawn Thunar File Manager
     , ((modm,               xK_f     ), spawn "thunar")
     -- Restart xmonad
@@ -274,10 +277,11 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do 
-    xmproc <- spawnPipe "/home/maya/.cabal/bin/xmobar" 
-    xmonad $ docks defaults
+    xmproc <- spawnPipe "/home/maya/.local/bin/xmobar" 
+    xmonad $ ewmh $ docks defaults 
         { layoutHook = spacingRaw True (Border 0 5 5 5) True (Border 3 3 3 3) True $ layoutHook defaults
-	, logHook = dynamicLogWithPP xmobarPP
+        , handleEventHook = handleEventHook def <+> fullscreenEventHook
+        , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = \x -> hPutStrLn xmproc x
                         , ppCurrent = xmobarColor "#c3e88d" "" . wrap "[" "]" -- Current workspace in xmobar
                         , ppVisible = xmobarColor "#c3e88d" "" . wrap "(" ")"               -- Visible but not current workspace
