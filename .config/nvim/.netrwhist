@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/home/maya/Documents/aiwita/codes/haskell/probFormulas'
-let g:netrw_dirhist_2='/home/maya/Documents/aiwita/codes/haskell/probFormulas/src'
-let g:netrw_dirhist_1='/home/maya/Documents/aiwita/codes/haskell/probFormulas'
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/phi/Documents/codes/haskell/funsets'
+let g:netrw_dirhist_7='/home/phi/Documents/codes/haskell/funsets/src'
+let g:netrw_dirhist_6='/home/phi/Documents/codes/haskell/funsets'
+let g:netrw_dirhist_5='/home/phi/Documents/codes/haskell/pipe-operator/src'
+let g:netrw_dirhist_4='/home/phi/Documents/codes/haskell/pipe-operator'
+let g:netrw_dirhist_3='/home/phi/Documents/codes/haskell/filesTest'
+let g:netrw_dirhist_2='/home/phi/Documents/codes/haskell/filesTest/src'
+let g:netrw_dirhist_1='/home/phi/Documents/codes/haskell/filesTest'
